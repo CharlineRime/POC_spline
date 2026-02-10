@@ -1,0 +1,124 @@
+@import "bootstrap/scss/bootstrap-grid";
+
+.row + .row {
+  margin-top: 16px;
+}
+
+.row > .col,
+.row > [class^="col-"] {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: rgba(86, 61, 124, 0.15);
+  border: 1px solid rgba(86, 61, 124, 0.2);
+}
+.components {
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  padding: 15px 30px;
+  border-radius: 39px;
+  border: 2px solid #fff;
+  width: fit-content;
+  background-color: transparent;
+  color: #fff;
+  font-family: "Kode Mono";
+  font-size: 16px;
+  font-weight: 500;
+}
+.escape-btn {
+  padding: 15px 30px;
+  border-radius: 39px;
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+  font-family: "Kode Mono";
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.escape-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow:
+    0 0 6px rgba(255, 255, 255, 0.25),
+    inset 0 0 6px rgba(255, 255, 255, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #000;
+}
+
+a {
+  color: inherit;
+}
+
+img,
+video {
+  display: block;
+}
+
+h1 {
+  color: #fff;
+  font-family: "Kode Mono";
+  font-size: 64px;
+  font-weight: 500;
+}
+
+p {
+  color: #fff;
+  font-family: "Funnel Display";
+  font-size: 24px;
+  font-weight: 300;
+}
+
+li {
+  color: #fff;
+  font-family: "Funnel Display";
+  font-size: 24px;
+  font-weight: 300;
+  list-style: none;
+}
+
+.banner {
+  padding: 100px 0px;
+  background-image: url("../img/intro-banner.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.footer-logo {
+  max-width: 10vw;
+}
+.footer-socials {
+  margin-top: 15px;
+  display: flex;
+  gap: 35px;
+}
+
+header {
+  margin-bottom: 160px;
+}
+.header-nav {
+  display: flex;
+  height: 8vh;
+  gap: 45px;
+  justify-content: flex-end;
+  align-items: center;
+}
