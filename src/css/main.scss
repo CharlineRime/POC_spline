@@ -17,6 +17,8 @@
   flex-direction: column;
 }
 
+// test bouton hover
+
 button {
   padding: 15px 30px;
   border-radius: 39px;
@@ -55,6 +57,40 @@ button {
     inset 0 0 6px rgba(255, 255, 255, 0.15);
 }
 
+// test lien hover
+
+li {
+  display: table-cell;
+  position: relative;
+  padding: 15px 0;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+
+  display: inline-block;
+  padding: 15px 20px;
+  position: relative;
+}
+a:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #fff;
+  transition:
+    width 0.3s ease 0s,
+    left 0.3s ease 0s;
+  width: 0;
+}
+a:hover:after {
+  width: 100%;
+  left: 0;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -62,6 +98,10 @@ button {
 }
 body {
   background-color: #000;
+  color: #fff;
+  font-family: "Funnel Display";
+  font-size: 24px;
+  font-weight: 300;
 }
 
 a {
@@ -78,26 +118,32 @@ h1 {
   font-family: "Kode Mono";
   font-size: 64px;
   font-weight: 500;
+  margin: 50px 0px;
 }
-
-p {
+h2 {
   color: #fff;
-  font-family: "Funnel Display";
-  font-size: 24px;
-  font-weight: 300;
+  text-align: center;
+  font-family: "Kode Mono";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 li {
-  color: #fff;
-  font-family: "Funnel Display";
-  font-size: 24px;
-  font-weight: 300;
   list-style: none;
 }
 
 .banner {
-  padding: 100px 0px;
-  background-image: url("../img/intro-banner.png");
+  padding: 50px 0px;
+  background-image: url("../img/img-banner-2.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.footer-banner {
+  padding: 50px 0px;
+  background-image: url("../img/img-banner-1.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -112,13 +158,157 @@ li {
   gap: 35px;
 }
 
-header {
-  margin-bottom: 160px;
-}
 .header-nav {
   display: flex;
   height: 8vh;
   gap: 45px;
   justify-content: flex-end;
   align-items: center;
+}
+.reservation-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 10px;
+
+  transition:
+    background-color 0.3s ease,
+    border-radius 0.3s ease;
+}
+
+.reservation-card:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 40px;
+}
+
+.reservation-room {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 100px;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  color: #ffff;
+  font-size: 25px;
+}
+label {
+  color: #00a9a1;
+  font-size: 20px;
+}
+.reservation-form {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: none;
+  padding: 15px 30px;
+  gap: 8px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.reservation-form-center {
+  display: flex;
+  align-items: center;
+}
+
+.calendar {
+  display: inline-grid;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 40px 30px -20px rgba(0, 0, 0, 0.3);
+
+  .month {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 300;
+
+    .year {
+      font-weight: 600;
+      margin-left: 10px;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: #00a9a1;
+      width: 40px;
+      height: 40px;
+      border-radius: 40px;
+      transition-duration: 0.2s;
+      position: relative;
+
+      &:hover {
+        background: #eee;
+      }
+    }
+  }
+
+  .days {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(7, 1fr);
+    color: rgba(0, 169, 161, 0.5);
+    font-weight: 600;
+    margin-bottom: 15px;
+
+    span {
+      width: 50px;
+      justify-self: center;
+      align-self: center;
+      text-align: center;
+    }
+  }
+
+  .dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    button {
+      cursor: pointer;
+      outline: 0;
+      border: 0;
+      background: transparent;
+      font-family: "Montserrat", sans-serif;
+      font-size: 16px;
+      justify-self: center;
+      align-self: center;
+      width: 50px;
+      height: 60px;
+      border-radius: 50px;
+      margin: 2px;
+      transition-duration: 0.2s;
+
+      &:first-child {
+        grid-column: 3;
+      }
+
+      &:hover {
+        background: rgba(0, 169, 161, 0.5);
+      }
+
+      &:focus {
+        background: #00a9a1;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.reservation-date-spacing {
+  display: flex;
+  flex-direction: column;
 }
