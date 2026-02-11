@@ -33,14 +33,11 @@ button {
 .escape-btn {
   padding: 15px 30px;
   border-radius: 39px;
-  border: 2px solid #fff;
+  border: 1px solid #fff;
   background: transparent;
   color: #fff;
   font-family: "Kode Mono";
   font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-
   transition:
     background-color 0.3s ease,
     box-shadow 0.3s ease,
@@ -147,6 +144,11 @@ li {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
 }
 
 .footer-logo {
@@ -311,4 +313,80 @@ label {
 .reservation-date-spacing {
   display: flex;
   flex-direction: column;
+}
+
+.reservation-payment {
+  display: flex;
+  justify-content: space-between;
+}
+input[type="radio"] {
+  accent-color: #00a9a1;
+  width: 20px;
+  height: 20px;
+  scale: 1.2;
+}
+
+.reservation-label {
+  color: #fff;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.reservation-title-2 {
+  text-align: left;
+}
+.reservation-text-color {
+  color: #00a9a1;
+}
+
+.reservation-btn {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.time-slot {
+  background: #0f4a4a;
+  border: none;
+  border-radius: 12px;
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  min-height: 80px;
+  font-size: 20px;
+}
+
+/* État disponible (bleu foncé) */
+.time-slot.available {
+  background: #0f4a4a;
+}
+
+/* État complet/non disponible (gris) */
+.time-slot.completed {
+  background: #2a2a2a;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Animation au clic */
+.time-slot:active:not(.completed) {
+  transform: scale(0.95);
+}
+
+.available:focus {
+  background: #00b4b4;
+}
+
+.time-picker-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: fit-content;
+  width: 100%;
+  margin-top: 30px;
 }
