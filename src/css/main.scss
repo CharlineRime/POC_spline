@@ -22,7 +22,7 @@ html {
   --black: #000000;
   --accent: #00a9a1;
   --accent-light: #67c5c0;
-  --zone: rgba(255, 255, 255, 0.15);
+  --zone: rgba(235, 239, 242, 0.15);
   --blue: #4abcc9;
   --green: #bdca43;
   --purple: #e3a2f2;
@@ -155,9 +155,11 @@ li {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  margin-top: 160px;
 }
 
+.footer-margin {
+  margin-top: 160px;
+}
 .footer-nav {
   display: flex;
   flex-direction: column;
@@ -459,4 +461,14 @@ input[type="radio"] {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.tarifs-text {
+  margin-bottom: 90;
+}
+
+.tarifs-giftcard {
+  max-width: 400px;
+  border-radius: 20px;
+  object-fit: cover;
 }
