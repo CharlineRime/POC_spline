@@ -11,13 +11,17 @@
       href="https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Kode+Mono:wght@400..700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
   </head>
   <body>
     <div class="banner">
       <div class="container">
         <header>
           <div class="row">
-            <div class="col-3">
+            <div class="col-3" id="top">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="265"
@@ -35,8 +39,12 @@
                 />
               </svg>
             </div>
-            <div class="col">
-              <ul class="header-nav">
+            <div class="col header-wrapper">
+              <button class="burger-menu-btn" id="burgerBtn">
+                <i class="fas fa-bars"></i>
+              </button>
+              <ul class="header-nav" id="headerNav">
+                <li><a href="#top">Accueil</a></li>
                 <li><a href="#">Mon compte</a></li>
                 <li><a href="reservation.html">Réserver</a></li>
                 <li><a href="tarifs.html">Tarifs</a></li>
@@ -95,10 +103,11 @@
           </div>
           <div class="col-2 offset-8">
             <ul class="footer-nav">
-              <li>Mon compte</li>
-              <li>Réserver</li>
-              <li>Tarifs</li>
-              <li>Les salles</li>
+              <li><a href="#top">Accueil</a></li>
+              <li><a href="#">Mon compte</a></li>
+              <li><a href="reservation.html">Réserver</a></li>
+              <li><a href="tarifs.html">Tarifs</a></li>
+              <li><a href="salle-witch.html">Les salles</a></li>
             </ul>
           </div>
         </div>

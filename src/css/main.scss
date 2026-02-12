@@ -1,20 +1,9 @@
 @import "bootstrap/scss/bootstrap-grid";
 
-.row + .row {
-  margin-top: 16px;
-}
-
-.row > .col,
-.row > [class^="col-"] {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  background-color: rgba(86, 61, 124, 0.15);
-  border: 1px solid rgba(86, 61, 124, 0.2);
-}
-.components {
-  height: 20vh;
-  display: flex;
-  flex-direction: column;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -29,82 +18,6 @@ html {
   --pink: #b43b7d;
 }
 
-// test bouton hover
-
-button {
-  padding: 15px 30px;
-  border-radius: 39px;
-  border: 2px solid var(--white);
-  width: fit-content;
-  background-color: transparent;
-  color: var(--white);
-  font-family: "Kode Mono";
-  font-size: 16px;
-  font-weight: 500;
-}
-.escape-btn {
-  padding: 15px 30px;
-  border-radius: 39px;
-  border: 1px solid var(--white);
-  background: transparent;
-  color: var(--white);
-  font-family: "Kode Mono";
-  font-size: 16px;
-  transition:
-    background-color 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease,
-    color 0.3s ease;
-}
-
-.escape-btn:hover {
-  background-color: var(--zone);
-  color: var(--white);
-  border-color: transparent;
-  box-shadow:
-    0 0 6px var(--zone),
-    inset 0 0 6px var(--zone);
-}
-
-// test lien hover
-
-li {
-  display: table-cell;
-  position: relative;
-  padding: 15px 0;
-}
-a {
-  color: var(--white);
-  text-decoration: none;
-
-  display: inline-block;
-  padding: 15px 20px;
-  position: relative;
-}
-a:after {
-  background: none repeat scroll 0 0 transparent;
-  bottom: 0;
-  content: "";
-  display: block;
-  height: 2px;
-  left: 50%;
-  position: absolute;
-  background: var(--white);
-  transition:
-    width 0.3s ease 0s,
-    left 0.3s ease 0s;
-  width: 0;
-}
-a:hover:after {
-  width: 100%;
-  left: 0;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 body {
   background-color: var(--black);
   color: var(--white);
@@ -115,6 +28,7 @@ body {
 
 a {
   color: inherit;
+  text-decoration: none;
 }
 
 img,
@@ -127,31 +41,111 @@ h1 {
   font-family: "Kode Mono";
   font-size: 64px;
   font-weight: 500;
-  margin: 50px 0px;
+  margin: 50px 0;
 }
+
 h2 {
   color: var(--white);
   text-align: center;
   font-family: "Kode Mono";
   font-size: 32px;
-  font-style: normal;
   font-weight: 500;
-  line-height: normal;
 }
 
 li {
   list-style: none;
+  display: table-cell;
+  position: relative;
+  padding: 15px 0;
+}
+
+button {
+  padding: 15px 30px;
+  border-radius: 39px;
+  border: 1px solid var(--white);
+  background-color: transparent;
+  color: var(--white);
+  font-family: "Kode Mono";
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+a {
+  display: inline-block;
+  padding: 15px 20px;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--white);
+    transition: width 0.3s ease, left 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+    left: 0;
+  }
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  color: var(--white);
+  font-size: 25px;
+}
+
+input[type="radio"] {
+  accent-color: var(--accent);
+  width: 20px;
+  height: 20px;
+  scale: 1.2;
+}
+
+.row + .row {
+  margin-top: 16px;
+}
+
+.row > .col,
+.row > [class^="col-"] {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: rgba(86, 61, 124, 0.15);
+  border: 1px solid rgba(86, 61, 124, 0.2);
+}
+
+.escape-btn {
+  padding: 15px 30px;
+  border-radius: 39px;
+  border: 1px solid var(--white);
+  background: transparent;
+  color: var(--white);
+  font-family: "Kode Mono";
+  font-size: 16px;
+
+  &:hover {
+    background-color: var(--zone);
+    border-color: transparent;
+    box-shadow: 0 0 6px var(--zone), inset 0 0 6px var(--zone);
+  }
 }
 
 .banner {
-  padding: 50px 0px;
+  padding: 50px 0;
   background-image: url("../img/img-banner-2.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
+
 .footer-banner {
-  padding: 50px 0px;
+  padding: 50px 0;
   background-image: url("../img/img-banner-1.png");
   background-size: cover;
   background-position: center;
@@ -161,42 +155,87 @@ li {
 .footer-margin {
   margin-top: 160px;
 }
-.footer-nav {
+
+.header-wrapper {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
 }
 
-.footer-logo {
-  max-width: 10vw;
+.burger-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 28px;
+  cursor: pointer;
+  padding: 0 20px;
+  z-index: 1001;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--accent);
+  }
+
+  @media (max-width: 768px) {
+    display: block;
+  }
 }
-.footer-socials {
-  margin-top: 15px;
-  display: flex;
-  gap: 35px;
-}
+
 .header-nav {
   display: flex;
   height: 8vh;
   gap: 45px;
   justify-content: flex-end;
   align-items: center;
+
+  @media (max-width: 768px) {
+    position: fixed;
+    top: 80px;
+    right: -300px;
+    flex-direction: column;
+    width: 300px;
+    height: auto;
+    background-color: var(--black);
+    gap: 0;
+    padding: 20px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+
+    li {
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+      a {
+        padding: 0;
+      }
+    }
+
+    &.active {
+      right: 0;
+    }
+  }
 }
-.reservation-card {
+
+.footer-nav {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-  padding: 14px 10px;
 
-  transition:
-    background-color 0.3s ease,
-    border-radius 0.3s ease;
+  li {
+    padding: 0;
+  }
 }
 
-.reservation-card:hover {
-  background-color: var(--zone);
-  border-radius: 40px;
+.footer-logo {
+  max-width: 10vw;
+}
+
+.footer-socials {
+  margin-top: 15px;
+  display: flex;
+  gap: 35px;
 }
 
 .reservation-room {
@@ -206,16 +245,31 @@ li {
   margin-bottom: 100px;
 }
 
-input {
+.reservation-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 10px;
+  transition: background-color 0.3s ease, border-radius 0.3s ease;
+
+  &:hover {
+    background-color: var(--zone);
+    border-radius: 40px;
+  }
+}
+
+.tarifs-room .reservation-card:hover {
   background-color: transparent;
-  border: none;
-  color: var(--white);
-  font-size: 25px;
+  border-radius: 0;
 }
-label {
-  color: var(--accent);
-  font-size: 20px;
+
+.reservation-clickable .reservation-card.active {
+  background-color: var(--zone);
+  border-radius: 40px;
 }
+
 .reservation-form {
   display: flex;
   flex-direction: column;
@@ -227,9 +281,19 @@ label {
   border-top-right-radius: 10px;
 }
 
+label {
+  color: var(--accent);
+  font-size: 20px;
+}
+
 .reservation-form-center {
   display: flex;
   align-items: center;
+}
+
+.reservation-date-spacing {
+  display: flex;
+  flex-direction: column;
 }
 
 .calendar {
@@ -247,34 +311,30 @@ label {
     font-size: 20px;
     margin-bottom: 20px;
     font-weight: 300;
+  }
 
-    .year {
-      font-weight: 600;
-      margin-left: 10px;
-    }
+  .year {
+    font-weight: 600;
+    margin-left: 10px;
+  }
 
-    .nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-decoration: none;
-      color: var(--accent);
-      width: 40px;
-      height: 40px;
-      border-radius: 40px;
-      transition-duration: 0.2s;
-      position: relative;
+  .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--accent);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: background 0.2s;
 
-      &:hover {
-        background: var(--zone);
-      }
+    &:hover {
+      background: var(--zone);
     }
   }
 
   .days {
     display: grid;
-    justify-content: center;
-    align-items: center;
     grid-template-columns: repeat(7, 1fr);
     color: var(--accent);
     font-weight: 600;
@@ -282,8 +342,6 @@ label {
 
     span {
       width: 50px;
-      justify-self: center;
-      align-self: center;
       text-align: center;
     }
   }
@@ -293,19 +351,19 @@ label {
     grid-template-columns: repeat(7, 1fr);
 
     button {
-      cursor: pointer;
-      outline: 0;
-      border: 0;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin: 2px;
       background: transparent;
+      border: none;
+      cursor: pointer;
       font-family: "Montserrat", sans-serif;
       font-size: 16px;
-      justify-self: center;
-      align-self: center;
-      width: 50px;
-      height: 60px;
-      border-radius: 50px;
-      margin: 2px;
-      transition-duration: 0.2s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background 0.2s;
 
       &:first-child {
         grid-column: 3;
@@ -319,28 +377,18 @@ label {
         background: var(--accent);
         color: var(--white);
       }
+
+      &.selected {
+        background: var(--accent);
+        color: var(--white);
+      }
     }
   }
-}
-
-.reservation-date-spacing {
-  display: flex;
-  flex-direction: column;
 }
 
 .reservation-payment {
   display: flex;
   justify-content: space-between;
-}
-input[type="radio"] {
-  accent-color: var(--accent);
-  width: 20px;
-  height: 20px;
-  scale: 1.2;
-}
-
-.reservation-label {
-  color: var(--white);
 }
 
 .radio-option {
@@ -349,17 +397,16 @@ input[type="radio"] {
   gap: 15px;
 }
 
-.reservation-title-2 {
-  text-align: left;
-}
-.reservation-text-color {
-  color: var(--accent);
+.reservation-label {
+  color: var(--white);
 }
 
-.reservation-btn {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
+.time-picker-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+  margin-top: 30px;
 }
 
 .time-slot {
@@ -369,39 +416,28 @@ input[type="radio"] {
   padding: 24px;
   cursor: pointer;
   transition: all 0.3s ease;
-  position: relative;
   min-height: 80px;
   font-size: 20px;
+
+  &.completed {
+    background: #2a2a2a;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  &:active:not(.completed) {
+    transform: scale(0.95);
+  }
+
+  &:focus {
+    background: var(--accent-light);
+  }
 }
 
-/* État disponible (bleu foncé) */
-.time-slot.available {
-  background: #0f4a4a;
-}
-
-/* État complet/non disponible (gris) */
-.time-slot.completed {
-  background: #2a2a2a;
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
-/* Animation au clic */
-.time-slot:active:not(.completed) {
-  transform: scale(0.95);
-}
-
-.available:focus {
-  background: var(--accent-light);
-}
-
-.time-picker-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  max-width: fit-content;
-  width: 100%;
-  margin-top: 30px;
+.reservation-players-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .reservation-players-btn {
@@ -412,37 +448,21 @@ input[type="radio"] {
   font-size: 40px;
   font-weight: 300;
   color: var(--white);
+  background-color: var(--accent);
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.reservation-players-btn-plus {
-  background-color: var(--accent);
-}
+  &:hover {
+    background-color: var(--accent-light);
+    transform: scale(1.05);
+  }
 
-.reservation-players-btn-plus:hover {
-  background-color: var(--accent-light);
-  transform: scale(1.05);
-}
-
-.reservation-players-btn-plus:active {
-  transform: scale(0.95);
-}
-
-.reservation-players-btn-minus {
-  background-color: var(--accent);
-}
-
-.reservation-players-btn-minus:hover {
-  background-color: var(--accent-light);
-  transform: scale(1.05);
-}
-
-.reservation-players-btn-minus:active {
-  transform: scale(0.95);
+  &:active {
+    transform: scale(0.95);
+  }
 }
 
 .reservation-players-btn-display {
@@ -458,20 +478,18 @@ input[type="radio"] {
   margin-bottom: 5px;
 }
 
-.reservation-players-section {
+.reservation-title-2 {
+  text-align: left;
+}
+
+.reservation-text-color {
+  color: var(--accent);
+}
+
+.reservation-btn {
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tarifs-text {
-  margin-bottom: 90;
-}
-
-.tarifs-giftcard {
-  max-width: 400px;
-  border-radius: 20px;
-  object-fit: cover;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
 .salle-title-2 {
@@ -483,12 +501,15 @@ input[type="radio"] {
   flex-direction: column;
   gap: 15px;
 }
+
 .salle-text-green {
   color: var(--green);
 }
+
 .salle-text-red {
   color: var(--red);
 }
+
 .salle-text-pink {
   color: var(--pink);
 }
@@ -498,4 +519,14 @@ input[type="radio"] {
   border-radius: 40px;
   padding: 20px;
   width: fit-content;
+}
+
+.tarifs-giftcard {
+  max-width: 400px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.tarifs-page-text {
+  margin-bottom: 50px;
 }
