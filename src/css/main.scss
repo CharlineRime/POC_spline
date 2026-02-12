@@ -17,15 +17,26 @@
   flex-direction: column;
 }
 
+html {
+  --white: #ffffff;
+  --black: #000000;
+  --accent: #00a9a1;
+  --accent-light: #67c5c0;
+  --zone: rgba(255, 255, 255, 0.15);
+  --blue: #4abcc9;
+  --green: #bdca43;
+  --purple: #e3a2f2;
+}
+
 // test bouton hover
 
 button {
   padding: 15px 30px;
   border-radius: 39px;
-  border: 2px solid #fff;
+  border: 2px solid var(--white);
   width: fit-content;
   background-color: transparent;
-  color: #fff;
+  color: var(--white);
   font-family: "Kode Mono";
   font-size: 16px;
   font-weight: 500;
@@ -33,9 +44,9 @@ button {
 .escape-btn {
   padding: 15px 30px;
   border-radius: 39px;
-  border: 1px solid #fff;
+  border: 1px solid var(--white);
   background: transparent;
-  color: #fff;
+  color: var(--white);
   font-family: "Kode Mono";
   font-size: 16px;
   transition:
@@ -46,12 +57,12 @@ button {
 }
 
 .escape-btn:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
+  background-color: var(--zone);
+  color: var(--white);
   border-color: transparent;
   box-shadow:
-    0 0 6px rgba(255, 255, 255, 0.25),
-    inset 0 0 6px rgba(255, 255, 255, 0.15);
+    0 0 6px var(--zone),
+    inset 0 0 6px var(--zone);
 }
 
 // test lien hover
@@ -62,7 +73,7 @@ li {
   padding: 15px 0;
 }
 a {
-  color: #fff;
+  color: var(--white);
   text-decoration: none;
 
   display: inline-block;
@@ -77,7 +88,7 @@ a:after {
   height: 2px;
   left: 50%;
   position: absolute;
-  background: #fff;
+  background: var(--white);
   transition:
     width 0.3s ease 0s,
     left 0.3s ease 0s;
@@ -94,8 +105,8 @@ a:hover:after {
   padding: 0;
 }
 body {
-  background-color: #000;
-  color: #fff;
+  background-color: var(--black);
+  color: var(--white);
   font-family: "Funnel Display";
   font-size: 24px;
   font-weight: 300;
@@ -111,14 +122,14 @@ video {
 }
 
 h1 {
-  color: #fff;
+  color: var(--white);
   font-family: "Kode Mono";
   font-size: 64px;
   font-weight: 500;
   margin: 50px 0px;
 }
 h2 {
-  color: #fff;
+  color: var(--white);
   text-align: center;
   font-family: "Kode Mono";
   font-size: 32px;
@@ -144,6 +155,7 @@ li {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  margin-top: 160px;
 }
 
 .footer-nav {
@@ -159,7 +171,6 @@ li {
   display: flex;
   gap: 35px;
 }
-
 .header-nav {
   display: flex;
   height: 8vh;
@@ -181,7 +192,7 @@ li {
 }
 
 .reservation-card:hover {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: var(--zone);
   border-radius: 40px;
 }
 
@@ -195,17 +206,17 @@ li {
 input {
   background-color: transparent;
   border: none;
-  color: #ffff;
+  color: var(--white);
   font-size: 25px;
 }
 label {
-  color: #00a9a1;
+  color: var(--accent);
   font-size: 20px;
 }
 .reservation-form {
   display: flex;
   flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: var(--zone);
   border: none;
   padding: 15px 30px;
   gap: 8px;
@@ -222,10 +233,9 @@ label {
   display: inline-grid;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--zone);
   padding: 20px;
   border-radius: 5px;
-  box-shadow: 0px 40px 30px -20px rgba(0, 0, 0, 0.3);
 
   .month {
     display: flex;
@@ -245,7 +255,7 @@ label {
       justify-content: center;
       align-items: center;
       text-decoration: none;
-      color: #00a9a1;
+      color: var(--accent);
       width: 40px;
       height: 40px;
       border-radius: 40px;
@@ -253,7 +263,7 @@ label {
       position: relative;
 
       &:hover {
-        background: #eee;
+        background: var(--zone);
       }
     }
   }
@@ -263,7 +273,7 @@ label {
     justify-content: center;
     align-items: center;
     grid-template-columns: repeat(7, 1fr);
-    color: rgba(0, 169, 161, 0.5);
+    color: var(--accent);
     font-weight: 600;
     margin-bottom: 15px;
 
@@ -299,12 +309,12 @@ label {
       }
 
       &:hover {
-        background: rgba(0, 169, 161, 0.5);
+        background: var(--accent-light);
       }
 
       &:focus {
-        background: #00a9a1;
-        color: #fff;
+        background: var(--accent);
+        color: var(--white);
       }
     }
   }
@@ -320,14 +330,14 @@ label {
   justify-content: space-between;
 }
 input[type="radio"] {
-  accent-color: #00a9a1;
+  accent-color: var(--accent);
   width: 20px;
   height: 20px;
   scale: 1.2;
 }
 
 .reservation-label {
-  color: #fff;
+  color: var(--white);
 }
 
 .radio-option {
@@ -340,7 +350,7 @@ input[type="radio"] {
   text-align: left;
 }
 .reservation-text-color {
-  color: #00a9a1;
+  color: var(--accent);
 }
 
 .reservation-btn {
@@ -379,7 +389,7 @@ input[type="radio"] {
 }
 
 .available:focus {
-  background: #00b4b4;
+  background: var(--accent-light);
 }
 
 .time-picker-container {
@@ -389,4 +399,64 @@ input[type="radio"] {
   max-width: fit-content;
   width: 100%;
   margin-top: 30px;
+}
+
+.reservation-players-btn {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: none;
+  font-size: 40px;
+  font-weight: 300;
+  color: var(--white);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reservation-players-btn-plus {
+  background-color: var(--accent);
+}
+
+.reservation-players-btn-plus:hover {
+  background-color: var(--accent-light);
+  transform: scale(1.05);
+}
+
+.reservation-players-btn-plus:active {
+  transform: scale(0.95);
+}
+
+.reservation-players-btn-minus {
+  background-color: var(--accent);
+}
+
+.reservation-players-btn-minus:hover {
+  background-color: var(--accent-light);
+  transform: scale(1.05);
+}
+
+.reservation-players-btn-minus:active {
+  transform: scale(0.95);
+}
+
+.reservation-players-btn-display {
+  text-align: center;
+  color: var(--white);
+  min-width: 120px;
+}
+
+.number {
+  font-size: 80px;
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.reservation-players-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
