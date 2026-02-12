@@ -1,5 +1,43 @@
 import { Application } from "@splinetool/runtime";
 
+// Black fade transition overlay
+function createTransitionOverlay() {
+  const overlay = document.createElement("div");
+  overlay.className = "transition-overlay opening";
+  document.body.appendChild(overlay);
+  return overlay;
+}
+
+const overlay = createTransitionOverlay();
+
+// Fade in when page loads (with delay to avoid flash)
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    overlay.classList.remove("closing");
+    overlay.classList.add("opening");
+  }, 300);
+});
+
+// Intercept all navigation links
+document.addEventListener("click", (e) => {
+  const link = e.target.closest("a");
+  if (link && link.href && !link.target) {
+    const href = link.getAttribute("href");
+
+    // Only animate for internal navigation
+    if (href && !href.startsWith("http") && !href.startsWith("#")) {
+      e.preventDefault();
+
+      overlay.classList.remove("opening");
+      overlay.classList.add("closing");
+
+      setTimeout(() => {
+        window.location.href = href;
+      }, 450);
+    }
+  }
+});
+
 // Initialize 3D canvas if available
 const canvas = document.getElementById("canvas3d");
 if (canvas) {
