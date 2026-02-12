@@ -221,15 +221,24 @@ input[type="radio"] {
 }
 
 .footer-banner {
-  padding: 50px 0;
+  padding: 20px 0;
   background-image: url("../img/img-banner-1.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  font-size: 14px;
+
+  p {
+    font-size: 14px;
+  }
+
+  li {
+    padding: 0;
+  }
 }
 
 .footer-margin {
-  margin-top: 160px;
+  margin-top: 80px;
 }
 
 .header-wrapper {
@@ -298,6 +307,7 @@ input[type="radio"] {
 .footer-nav {
   display: flex;
   flex-direction: column;
+  gap: -5px;
 
   li {
     padding: 0;
