@@ -349,10 +349,29 @@ input[type="radio"] {
   transition:
     background-color 0.3s ease,
     border-radius 0.3s ease;
+}
 
-  &:hover {
-    background-color: var(--zone);
-    border-radius: 40px;
+.reservation-card-hover {
+  transition:
+    background-color 0.3s ease,
+    border-radius 0.3s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--white);
+    transition:
+      width 0.3s ease,
+      left 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+    left: 0;
   }
 }
 
